@@ -1,0 +1,61 @@
+# Redis Cloud API Credentials
+redis_global_api_key = "ARM.s.s.fsf"
+redis_global_secret_key = "fasfsagsagagg"
+
+# Subscription Details
+subscription_name = "gdx-tst-1"
+
+# Networking and Deployment Details
+region_deployment_mappings = {
+  "us-central1" = "10.247.136.0/24"
+  "us-west1"    = "10.247.168.0/24"
+}
+
+# Database Users Configuration
+redisusers = [
+  {
+    name = {
+      prefix     = "cache"
+      descriptor = "promotion"
+    }
+    system  = "ctlg"
+    app     = "dpc"
+    app_env = "tst"
+  },
+  {
+    name = {
+      prefix     = "cache"
+      descriptor = "homepage"
+    }
+    system  = "cnsm"
+    app     = "core"
+    app_env = "tst"
+  },
+  {
+    name = {
+      prefix     = "cache"
+      descriptor = "search"
+    }
+    system  = "ctlg"
+    app     = "api"
+    app_env = "tst"
+  }
+]
+
+database_configs = {
+  "cache-ctlg-promotion-dpc-tst" = {
+    dataset_size_in_gb          = 1
+    read_operations_per_second  = 250
+    write_operations_per_second = 250
+  }
+  "cache-cnsm-homepage-core-tst" = {
+    dataset_size_in_gb          = 2
+    read_operations_per_second  = 500
+    write_operations_per_second = 500
+  }
+  "cache-ctlg-search-api-tst" = {
+    dataset_size_in_gb          = 4
+    read_operations_per_second  = 1000
+    write_operations_per_second = 1000
+  }
+}
